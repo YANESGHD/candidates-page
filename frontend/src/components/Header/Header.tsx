@@ -1,8 +1,6 @@
 import { FunctionComponent, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Button } from '@mui/material';
+import { AppBar, Toolbar, Button } from '@mui/material';
 import styled from '@emotion/styled';
-import HomeIcon from '@mui/icons-material/Home';
 import { StyledModal } from '../StyledModal';
 import { useColumns } from '../../contexts';
 
@@ -31,19 +29,14 @@ export const Header: FunctionComponent = () => {
       <AppBar position='static'>
         <Toolbar>
           <Container>
-            <TextContainer>
-              <Text>Candidates</Text>
-              <Button
-                variant='contained'
-                color='secondary'
-                onClick={() => setOpenModal(true)}
-              >
-                Columns
-              </Button>
-            </TextContainer>
-            <IconButton component={Link} to='/home'>
-              <HomeIcon sx={{ fontSize: 30, color: 'white' }} />
-            </IconButton>
+            <Text>Candidates</Text>
+            <Button
+              variant='contained'
+              color='secondary'
+              onClick={() => setOpenModal(true)}
+            >
+              Columns
+            </Button>
           </Container>
         </Toolbar>
       </AppBar>
@@ -65,17 +58,10 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 20px;
 `;
 
 const Text = styled.h2`
   font-weight: 600;
   padding-right: 30px;
-`;
-
-const TextContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
